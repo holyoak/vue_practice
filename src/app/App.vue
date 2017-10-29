@@ -7,9 +7,6 @@
 
 <script>
 import actions from './actions'
-console.log('this.$store is ' + this.$store)
-/* eslint-disable no-undef */
-actions(this.$store, 'Accounts recived')
 //
 //  Is this the right pace to put the socket connection?
 //
@@ -25,7 +22,12 @@ actions(this.$store, 'Accounts recived')
 // })
 
 export default {
-  name: 'app'
+  name: 'app',
+  created () {
+    console.log('this.$store is ' + this.$store)
+    /* eslint-disable no-undef */
+    actions(this.$store, 'Accounts recived')
+  }
 }
 </script>
 

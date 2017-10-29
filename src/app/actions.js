@@ -1,27 +1,49 @@
-import accounts from './vuex'
-
 const data = [
   {
-    key: 'Checking',
-    info: {
-      balance: 10,
-      available: 10
-    }
-  },
-  {
-    key: 'Savings',
-    info: {
-      balance: 20,
-      available: 15
-    }
+    key: 'Wells Fargo',
+    balances: [
+      {
+        asset: 'Checking',
+        balance: 1000000.99,
+        available: 10
+      },
+      {
+        asset: 'Savings',
+        balance: 10.12345678,
+        available: 10.12345678
+      },
+      {
+        asset: 'CDs',
+        balance: 10,
+        available: 5
+      }
+    ]
+  }, {
+    key: 'Chase',
+    balances: [
+      {
+        asset: 'Checking',
+        balance: 2000000.99,
+        available: 10000.87
+      },
+      {
+        asset: 'Savings',
+        balance: 10.12345678,
+        available: 10.12345678
+      },
+      {
+        asset: 'CDs',
+        balance: 10.0678,
+        available: 5
+      }
+    ]
   }
 ]
 
-export default function (story, message) {
+export default function (store, message) {
   switch (message) {
     case ('Accounts recived'):
-      console.log(JSON.stringify(accounts.actions))
-      story.commit('LOAD_ACCOUNTS', data)
+      store.commit('LOAD_ACCOUNTS', data)
       break
     default:
       const error = 'App actions switch failed'
