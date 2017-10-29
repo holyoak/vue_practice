@@ -2,11 +2,17 @@
   <div id="accounts-list-view">
     List of accounts
     <md-layout>
-      <account-item
+      <ul>
+        <div v-for="account, key in accounts">
+          <div>{{ account.key }}</div>
+        </div>
+      </ul>
+<!--  <account-item
         v-for="account in accounts"
         v-bind="account"
         v-bind:key="account.key"
       ></account-item>
+-->
     </md-layout>
   </div>
 </template>
